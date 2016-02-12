@@ -57,7 +57,7 @@ var myExec = function(line) {
 
     var exec = require('child_process').exec
 
-    var execScript = exec('sh ' + line, function(error, stdout, stderr) {
+    var execScript = execSync('sh ' + line, function(error, stdout, stderr) {
         console.log('stdout: ' + stdout)
         console.log('stderr: ' + stderr)
         if (error !== null) {
