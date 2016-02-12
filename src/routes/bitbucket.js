@@ -46,19 +46,28 @@ Bitbucket.prototype.post = function(req, res) {
 
 var myExec = function(line) {
 
-    var exec = require('child_process').exec
+    var exec = require('child_process').execSync
 
     var execScript = exec('sh ' + line, function(error, stdout, stderr) {
       if(stdout){
-        console.log('stdout: ' + stdout);
+        //console.log('stdout: ' + stdout);
       }
 
       if(stderr){
-        console.log('stderr: ' + stderr);
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
+        //console.log('stderr: ' + stderr);
       }
+
+      if (error !== null) {
+          console.log('exec error: ' + error);
+      }
+    });
+
+    execScript.stdout.on('data', function(data) {
+      console.log(data);
+    });
+
+    execScript.stderr.on('data', function(data) {
+      console.log(data);
     });
 
     execScript.on('data', function(data) {
