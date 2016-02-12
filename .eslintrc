@@ -1,5 +1,98 @@
 {
-  "extends": [
-    "standard"
-  ]
+    /**
+
+     //https://github.com/SublimeLinter/SublimeLinter3/issues/178
+
+     * TODO: Comments do not belong in JSON. Investigate if we want to extend this config file through another module.exports file
+     * http://eslint.org/docs/user-guide/configuring
+     * https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+     * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/legacy.js
+     */
+    "extends": "airbnb/legacy",
+    "env": {
+        "amd": true,
+        "browser": true,
+        "jasmine": true
+    },
+    "rules": {
+     
+        /**
+         * Filenames
+         */
+        "filenames/filenames": [2,"^(((?!controller|service)[a-z])+([\\-](?!controller|service)[a-z])*){1,4}$"],
+
+        /**
+         * ABN Specific
+         */
+        // http://eslint.org/docs/rules/quote-props
+        "quote-props": 2,
+
+        /**
+         * Best practices
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/best-practices.js
+         */
+        // http://eslint.org/docs/rules/no-param-reassign
+        "no-param-reassign": [2, {
+            "props": false 
+        }],
+        // http://eslint.org/docs/rules/no-warning-comments
+        "no-warning-comments": 1,
+        
+        // http://eslint.org/docs/rules/vars-on-top
+        "vars-on-top": 0,
+
+        /**
+         * Errors
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/errors.js
+         */
+        // http://eslint.org/docs/rules/comma-dangle
+        "comma-dangle": [2, "never"],
+
+        /**
+         * Legacy
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/legacy.js
+         */
+
+        /**
+         * Node
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/node.js
+         */
+
+        /**
+         * Strict
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/strict.js
+         */
+        // http://eslint.org/docs/rules/strict
+        "strict": [2, "function"],
+
+        /**
+         * Style
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/style.js
+         */
+        // http://eslint.org/docs/rules/consistent-this
+        "consistent-this": [2, "self"],
+        // http://eslint.org/docs/rules/func-names
+        "func-names": 0,
+
+        // disallow else after a return in an if
+        'no-else-return': 0,
+
+        // http://eslint.org/docs/rules/indent
+        "indent": [2, 4],
+        // http://eslint.org/docs/rules/max-len
+        "max-len": [1, 120],
+        // http://eslint.org/docs/rules/no-array-constructor
+        "no-array-constructor": 2,
+        // http://eslint.org/docs/rules/space-before-function-paren
+        "space-before-function-paren": [2, "never"],
+
+        /**
+         * Variables
+         * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/variables.js
+         */
+        // http://eslint.org/docs/rules/no-use-before-define
+        "no-use-before-define": [2, "nofunc"],
+        // http://eslint.org/docs/rules/no-shadow
+        "no-shadow": 0
+    }
 }

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "body-parser": "^1.6.3",
+    "eslint-config-airbnb": "^5.0.0",
     "express": "4.13.3",
     "morgan": "^1.5.0",
     "netmask": "0.0.2",
