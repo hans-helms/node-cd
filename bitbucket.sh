@@ -12,9 +12,12 @@ reslog=$(git log HEAD..origin/master --oneline)
 if [ "${reslog}" != "" ] ; then
  echo "pulling changes from the server"
 
+    #stop the server
     pm2 stop ./server.js
     
-    git pull
+    git fetch --all
+
+    git reset --hard origin/master
     
     gulp clear-database
 
