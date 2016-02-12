@@ -15,10 +15,13 @@ if [ "${reslog}" != "" ] ; then
     pm2 stop ./server.js
     
     git pull
-
+    
     gulp clear-database
+
     gulp update-database
+    
     npm install
+    
     pm2 start ./server.js
 
 
