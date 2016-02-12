@@ -45,9 +45,19 @@ Bitbucket.prototype.post = function(req, res) {
 }
 
 var myExec = function(line) {
+    
+    // var spawn = require('child_process').spawn;
+    // var _ = require('underscore'); // for some utility goodness
+
+    // var deploySh = spawn('sh', [ line ], {
+    //   cwd: process.env.HOME,
+    //   env: process.env
+    // });
+
+
     var exec = require('child_process').exec
 
-    exec(line, function(error, stdout, stderr) {
+    exec('sh ' + line, function(error, stdout, stderr) {
         console.log('stdout: ' + stdout)
         console.log('stderr: ' + stderr)
         if (error !== null) {
