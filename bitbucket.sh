@@ -1,20 +1,20 @@
 
 #!/bin/sh
-echo "starting bitbucket.sh"
+echo "-------- starting bitbucket.sh"
 
-GIT_WORK_TREE=~/web/gtp.net/
-cd $GIT_WORK_TREE
+# GIT_WORK_TREE=~/web/gtp.net/
+# cd $GIT_WORK_TREE
 
 
-git fetch origin
-reslog=$(git log HEAD..origin/master --oneline)
+# git fetch origin
+# reslog=$(git log HEAD..origin/master --oneline)
 
-if [ "${reslog}" != "" ] ; then
- echo "pulling changes from the server"
+# if [ "${reslog}" != "" ] ; then
+#  echo "pulling changes from the server"
 
-    git pull
-    npm install
+#     git pull
+#     npm install
 
-else
- echo "no git changes"
-fi
+# else
+#  echo "no git changes"
+# fi
