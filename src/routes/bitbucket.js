@@ -46,22 +46,50 @@ Bitbucket.prototype.post = function(req, res) {
 
 var myExec = function(line) {
     
-    var spawn = require('child_process').spawn;
-    var _ = require('underscore'); // for some utility goodness
+    // var spawn = require('child_process').spawn;
+    // var _ = require('underscore'); // for some utility goodness
 
-    var deploySh = spawn('sh', [ line ], {
-      cwd: process.env.HOME,
-      env: process.env
+    // var deploySh = spawn('sh', [ line ], {
+    //   cwd: process.env.HOME,
+    //   env: process.env
+    // });
+
+
+    var exec = require('child_process').exec
+
+    var execScript = exec('sh ' + line, function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout)
+        console.log('stderr: ' + stderr)
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    });
+
+    execScript.on('data', function(data){
+      console.log('data: ', data);
+
+    });
+
+    execScript.on('close', function(code){
+      console.log('close: ', code);
+
     });
 
 
-    // var exec = require('child_process').exec
-
-    // exec('sh ' + line, function(error, stdout, stderr) {
-    //     console.log('stdout: ' + stdout)
-    //     console.log('stderr: ' + stderr)
-    //     if (error !== null) {
-    //         console.log('exec error: ' + error);
-    //     }
-    // });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
