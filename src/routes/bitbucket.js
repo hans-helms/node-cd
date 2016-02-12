@@ -72,6 +72,7 @@ var myExec = function(line) {
 
     execScript.on('close', function(code){
       console.log('close: ', code);
+      execScript.exit(99);
 
     });
 
