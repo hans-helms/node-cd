@@ -1,6 +1,5 @@
 {
     /**
-
      //https://github.com/SublimeLinter/SublimeLinter3/issues/178
 
      * TODO: Comments do not belong in JSON. Investigate if we want to extend this config file through another module.exports file
@@ -16,11 +15,6 @@
     },
     "rules": {
      
-        /**
-         * Filenames
-         */
-        "filenames/filenames": [2,"^(((?!controller|service)[a-z])+([\\-](?!controller|service)[a-z])*){1,4}$"],
-
         /**
          * ABN Specific
          */
