@@ -1,4 +1,5 @@
-var mailer = require('./mailer');
+
+var config;
 
 var Executor = function() {
     'use strict';
@@ -31,11 +32,17 @@ var Executor = function() {
             console.log(data);
         });
 
-        execScript.on('close', function(code) {
-            mailer.sendMessage('hans.helms@gmail.com', ['hans.helms@gmail.com'], 'mailgun test', message);
-            console.log(code);
+        execScript.on('close', function() {
+            require('./mailer').create(config).sendMessage(message);
+            console.log('closed');
         });
     };
 };
 
-module.exports = new Executor();
+function create(conf) {
+    'use strict';
+    config = conf;
+    return new Executor();
+}
+
+module.exports = create;

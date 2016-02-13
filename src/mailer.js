@@ -1,15 +1,17 @@
 var Mailgun = require('mailgun').Mailgun;
 
+var config;
+
 var Mailer = function() {
     'use strict';
 
-    this.mailgun = new Mailgun('key-3639adbf7081e9e0744b29f0bffea9fc');
+    this.mailgun = new Mailgun(config.apiKey);
 
-    this.sendMessage = function(from, to, subject, message) {
+    this.sendMessage = function(message) {
         this.mailgun.sendText(
-            from,
-            to,
-            subject,
+            config.from,
+            config.to,
+            config.subject,
             message,
             function(err) {
                 console.log(err);
@@ -17,4 +19,12 @@ var Mailer = function() {
     };
 };
 
-module.exports = new Mailer();
+function create(conf) {
+    'use strict';
+
+    config = conf;
+    return new Mailer();
+}
+
+
+module.exports = create;

@@ -39,6 +39,14 @@ var Private = {
             bitbucket: './bitbucket.sh',
             contentful: './contentful.sh'
         }
+    },
+    mailer: {
+        apiKey: 'key-3639adbf7081e9e0744b29f0bffea9fc',
+        from: 'hans.helms@gmail.com',
+        to: ['hans.helms@gmail.com'],
+        subject: 'OTP automatic build',
+        errorPattern: ''
+
     }
 };
 

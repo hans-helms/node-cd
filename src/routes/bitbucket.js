@@ -1,6 +1,5 @@
 var config;
 
-var executor = require('./../executor');
 
 function Bitbucket(conf) {
     'use strict';
@@ -42,6 +41,7 @@ Bitbucket.prototype.post = function(req, res) {
 
     if (commitsFromBranch.length > 0) {
         console.log('Executing bash file...');
+        var executor = require('./../executor').create(config);
         executor.execute(config.action.exec.bitbucket);
     }
 
