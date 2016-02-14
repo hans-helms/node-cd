@@ -5,13 +5,13 @@ var config;
 var Mailer = function() {
     'use strict';
 
-    this.mailgun = new Mailgun(config.apiKey);
+    this.mailgun = new Mailgun(config.mailer.apiKey);
 
     this.sendMessage = function(message) {
         this.mailgun.sendText(
-            config.from,
-            config.to,
-            config.subject,
+            config.mailer.from,
+            config.mailer.to,
+            config.mailer.subject,
             message,
             function(err) {
                 console.log(err);

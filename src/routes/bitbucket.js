@@ -1,6 +1,5 @@
 var config;
 
-
 function Bitbucket(conf) {
     'use strict';
     config = conf;
