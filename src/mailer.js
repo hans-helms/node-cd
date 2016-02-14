@@ -27,4 +27,4 @@ function create(conf) {
 }
 
 
-module.exports = create;
+module.exports.create = create;

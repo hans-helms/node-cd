@@ -39,10 +39,10 @@ var Executor = function() {
     };
 };
 
-function create(conf) {
+var create = function(conf) {
     'use strict';
     config = conf;
     return new Executor();
-}
+};
 
-module.exports = create;
+module.exports.create = create;
